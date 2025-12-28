@@ -1,6 +1,8 @@
-# Font: https://fonts.google.com/selection/embed
-
-
-[React]()
+[Vite](https://vite.dev/)
+[React](https://react.dev/)
 [Redux Toolkit](https://redux-toolkit.js.org/)
-[TailwindCSS]()
+[React-Redux](https://react-redux.js.org/)
+[React Router](https://reactrouter.com/home)
+[TailwindCSS](https://tailwindcss.com/)
+[Heroicons](https://heroicons.com/solid)
+[Font](https://fonts.google.com/selection/embed)
