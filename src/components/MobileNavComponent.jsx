@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 import { Bars3Icon } from '@heroicons/react/16/solid';
 
 function MobileNavComponent({links}) {
-  const [activeMenu, setActiveMenu] = useState(true);
+  const [activeMenu, setActiveMenu] = useState(false);
 
   const handleActiveMenu = () => {
     setActiveMenu(!activeMenu)
