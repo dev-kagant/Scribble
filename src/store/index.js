@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import titleReducer from './titleSlice'
+import listsReducer from './listsSlice'
 
 let initialState;
 
 if(localStorage.getItem('scribbleData')){
     initialState =  JSON.parse(localStorage.getItem('scribbleData'));
 }else if(!localStorage.getItem('scribbleData')){
-    initialState = {"siteTitle": "", "listFilter": '', "lists": []};
+    initialState = {"siteTitle": "", "count": 0, "lists": []};
     localStorage.setItem("scribbleData", JSON.stringify(initialState))
 }
 
@@ -14,5 +15,6 @@ if(localStorage.getItem('scribbleData')){
 export const store = configureStore({
   reducer: {
     title: titleReducer,
+    lists: listsReducer, 
   },
 })
