@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@layer base {
+  html {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 @theme {
   --font-thick: "Cal Sans", sans-serif;
   --font-skinny: "Smooch Sans", sans-serif;
