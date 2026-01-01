@@ -20,9 +20,9 @@ function ListComponent({list}) {
   const handleDeleteList = () => {};
 
   return (
-    <div className='flex flex-col w-full border-2 rounded-xl bg-white mt-8 p-4'>
+    <div className='flex flex-col w-full h-full border-2 rounded-xl bg-white mt-8 p-4'>
       <TitleComponent title={list.name} placeholder="Add a list name..." onCallback={handleAddItem} styles="flex items-center text-teal-800 font-thick text-2xl sm:text-4xl lg:text-5xl w-full"/>
-      <div className='mt-6'>
+      <div className='mt-6 max-h-3/4 overflow-scroll'>
         {list.array.map((item)=>(
           <div key={item.id} className=''>
             <ItemComponent item={item}/>
