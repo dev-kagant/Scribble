@@ -20,7 +20,7 @@ const TitleComponent = ({title, placeholder, onCallback, styles}) => {
   }
 
   return (
-    <div className='flex w-full justify-center'>
+    <div className='flex w-full justify-center mt-8 lg:mt-10 xl:mt-14'>
       {!heading || editing === true ? (
       <div className='flex basis-auto md:text-base bg-orange-100 border-b-4 rounded-xl border-solid border-teal-800 h-16 w-1/2 justify-between z-10'>
         <input name={heading} type="text" placeholder={placeholder} value={heading} onChange={handleTitle} className='ml-4 text-3xl outline-none font-skinny'/>
