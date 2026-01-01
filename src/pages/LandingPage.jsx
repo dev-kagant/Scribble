@@ -8,8 +8,12 @@ import Modal from '../components/ModalComponent';
 
 const LandingPage = () => {
   const siteTitle = useSelector((state) => state.title.siteTitle);
+  const data = useSelector((state) => state.data);
+  // const lists = useSelector((state) => state.lists);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch()
+
+  console.log('landing page', data);
 
   const handleNewTitle = (siteTitle) => {
     dispatch(addTitle(siteTitle)); 
@@ -22,46 +26,6 @@ const LandingPage = () => {
     name: 'Shopping List',
     count: 5,
     array: [
-      {
-        id: 1,
-        item: "Apple"
-      },
-      {
-        id: 2,
-        item: "Oranges"
-      },
-      {
-        id: 3,
-        item: "Peaches"
-      },
-      {
-        id: 4,
-        item: "Salt"
-      },
-      {
-        id: 5,
-        item: "Ginger and tomorrow we raid"
-      },
-      {
-        id: 1,
-        item: "Apple"
-      },
-      {
-        id: 2,
-        item: "Oranges"
-      },
-      {
-        id: 3,
-        item: "Peaches"
-      },
-      {
-        id: 4,
-        item: "Salt"
-      },
-      {
-        id: 5,
-        item: "Ginger and tomorrow we raid"
-      },
       {
         id: 1,
         item: "Apple"

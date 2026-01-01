@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import titleReducer from './titleSlice'
 import listsReducer from './listsSlice'
+import dataReducer from './dataSlice'
 
 let initialState;
 
@@ -15,6 +16,7 @@ if(localStorage.getItem('scribbleData')){
 export const store = configureStore({
   reducer: {
     title: titleReducer,
-    lists: listsReducer, 
+    lists: listsReducer,
+    data: dataReducer,
   },
 })
