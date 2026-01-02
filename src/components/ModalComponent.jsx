@@ -6,7 +6,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-full fixed inset-0 bg-black-shade">
-      <div className="flex flex-col items-center max-h-9/10">
+      <div className="flex flex-col items-center max-h-4/5">
         <button
           onClick={onClose}
           className="text-white hover:text-teal-600 text-xl w-8 cursor-pointer"

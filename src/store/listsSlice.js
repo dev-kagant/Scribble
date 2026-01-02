@@ -4,7 +4,7 @@ const data = JSON.parse(localStorage.getItem('scribbleData'));
 
 console.log('data', data);
 
-const initialState = {
+let initialState = {
   "id": 0,
   "name": "",
   "count": 0,
