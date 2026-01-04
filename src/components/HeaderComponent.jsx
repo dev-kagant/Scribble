@@ -9,8 +9,8 @@ function HeaderComponent() {
 
   const linksArray = [
     {name: 'Home', path: '/'},
-    {name: 'Creator', path: '/creator'},
-    {name: 'About', path: '/about'}
+    {name: 'About', path: '/about'},
+    {name: 'Creator', path: '/creator'}
   ]
   return (
     <div className="flex flex-row justify-between h-12 items-center px-8 border-b-2 border-teal-800 bg-white">

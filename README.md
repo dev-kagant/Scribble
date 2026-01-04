@@ -6,3 +6,4 @@
 [TailwindCSS](https://tailwindcss.com/)
 [Heroicons](https://heroicons.com/solid)
 [Font](https://fonts.google.com/selection/embed)
+[React Social Icons](https://www.npmjs.com/package/react-social-icons)
