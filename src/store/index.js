@@ -10,18 +10,6 @@ if(localStorage.getItem('scribbleData')){
 }
 
 
-const findList = () => {
-  let currentList = data.lists;
-
-  for(i=0; i < currentList.length; i++ ){
-    console.log('what is i', currentList[i]);
-  }
-};
-
-
-// const updateData = () => {};
-
-
 const dataSlice = createSlice({
   name: "data",
   initialState,
@@ -29,7 +17,6 @@ const dataSlice = createSlice({
     getData: (state) => {
       console.log('State', state);
     },
-    updateData: (state, action) => {},
   }
 });
 
@@ -39,13 +26,8 @@ const titleSlice = createSlice({
   initialState,
   reducers: {
     addTitle: (state, action) => {
-        // const data = JSON.parse(localStorage.getItem('scribbleData'));
         state.siteTitle = action.payload;
         localStorage.setItem("scribbleData", JSON.stringify({...state, "siteTitle": action.payload}))
-    },
-    removeTitle: (state) => {
-        state.siteTitle = "";
-        localStorage.setItem("scribbleData", JSON.stringify({...state, "siteTitle": ""}))
     },
   }
 });
@@ -56,23 +38,22 @@ const listsSlice = createSlice({
   initialState,
   reducers: {
     createList: (state, action) => {
-      // const data = JSON.parse(localStorage.getItem('scribbleData'));
-
-      console.log('data', state);
-      console.log('What we get', state.lists);
-      
       let newList = {
         "id": state.count + 1,
         "listName": action.payload.listName,
         "count": action.payload.count,
-        "lists": action.payload.items
+        "items": action.payload.items
       }
       localStorage.setItem("scribbleData",  JSON.stringify({...state, "count": state.count+1, "lists": [...state.lists, newList]}))
     },
-    removeList: (state, action) => {},
-    updateCount: () => {},
-    addItem: (state, action) => {},
-    removeItem: (state) => {},
+    updateLists: (state, action) => {
+      state.lists = action.payload;
+      localStorage.setItem("scribbleData",  JSON.stringify({...state, "lists": action.payload}))
+    },
+    removeList: (state, action) => {
+      state.lists = action.payload;
+      localStorage.setItem("scribbleData",  JSON.stringify({...state, "count":state.count-1, "lists": action.payload}))
+    },
   }
 });
 
@@ -86,5 +67,5 @@ export const store = configureStore({
 });
 
 export const {getData, updateData} = dataSlice.actions;
-export const {addTitle, removeTitle} = titleSlice.actions;
-export const {createList} = listsSlice.actions;
+export const {addTitle} = titleSlice.actions;
+export const {createList, updateLists} = listsSlice.actions;

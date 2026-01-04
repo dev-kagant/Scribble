@@ -1,23 +1,28 @@
-import {useState} from 'react'
+import {useState} from 'react';
+
 import ItemComponent from './ItemComponent';
 import TitleComponent from './TitleComponent';
+
 import { PlusIcon } from '@heroicons/react/16/solid';
 
 
-function ListComponent({list, addNewList}) {
+function ListComponent({list, addNewList, updateList, deleteList}) {
   const [item, setItem] = useState('');
   const [listName, setListName] = useState(list.listName);
   const [count, setCount] = useState(list.count);
   const [items, setItems] = useState(list.items);
 
+  console.log('List Component', list);
 
   const handleAddListName = (name) => {
     setListName(name);
   };
 
+
   const handleItemInput = (e) => {
     setItem(e.target.value);
   };
+
 
   const handleAddItem = (e) => {
     e.preventDefault();
@@ -30,30 +35,47 @@ function ListComponent({list, addNewList}) {
     setItem("");
   };
 
+
   const handleUpdateItem = (id, newValue) => {
     let updatedList = items.map((item)=>{
       if(item.id === id){
-        item.item = newValue;
-        return item;
+        return {...item, "item": newValue};
       }
       return item;
     })
     setItems(updatedList);
   };
 
+
   const handleDeleteItem = (id) => {
-    let updateList = items.filter((item)=>{ return item.id !== id});
-    setItems(updateList);
+    let updatedList = items.filter((item)=>{ return item.id !== id});
+    setItems(updatedList);
+    setCount(count-1);
   };
+
 
   // send updated or new list to the store 
   const handleSaveList = () => {
-    console.log('Listing', listName, count, items);
+    if(!listName){
+      alert("Please add a list name");
+      return;
+    };
+    if(items.length === 0){
+      alert("Please add at least one item to list.");
+      return;
+    }
+    if(list.id){
+      updateList(list.id, listName, count, items)
+      return;
+    }
     addNewList(listName, count, items);
   };
 
+
   const handleDeleteList = () => {
+    deleteList(list.id)
   };
+
 
   return (
     <div className='flex flex-col justify-between w-full max-h-full border-2 rounded-xl bg-white mt-8 p-4'>
