@@ -3,11 +3,13 @@ import ItemComponent from './ItemComponent';
 import TitleComponent from './TitleComponent';
 import { PlusIcon } from '@heroicons/react/16/solid';
 
-function ListComponent({list}) {
+
+function ListComponent({list, addNewList}) {
   const [item, setItem] = useState('');
-  const [listName, setListName] = useState(list.name);
+  const [listName, setListName] = useState(list.listName);
   const [count, setCount] = useState(list.count);
-  const [items, setItems] = useState(list.array);
+  const [items, setItems] = useState(list.items);
+
 
   const handleAddListName = (name) => {
     setListName(name);
@@ -46,7 +48,8 @@ function ListComponent({list}) {
 
   // send updated or new list to the store 
   const handleSaveList = () => {
-    console.log('Listing', list.id);
+    console.log('Listing', listName, count, items);
+    addNewList(listName, count, items);
   };
 
   const handleDeleteList = () => {

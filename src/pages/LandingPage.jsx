@@ -1,20 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux'
-import { addTitle, removeTitle } from '../store/titleSlice';
+import { addTitle, removeTitle, createList } from '../store/index';
 import ListComponent from "../components/ListComponent";
 import TitleComponent from "../components/TitleComponent";
 import CardComponent from "../components/CardComponent";
 import Modal from '../components/ModalComponent';
+import { useNavigate } from 'react-router';
 
 const LandingPage = () => {
-  const siteTitle = useSelector((state) => state.title.siteTitle);
+  const siteTitle = useSelector((state) => state.data.siteTitle);
   let fetchedData = useSelector((state) => state.data);
   let [data, setData] = useState(fetchedData);
   const [currentList, setCurrentList] = useState({});
   const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch()
-
-  // console.log('landing page 2.0', currentList);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+  console.log('landing page 2.0', data);
 
   const handleOpenList = (id) => {
     if(id){
@@ -24,9 +26,9 @@ const LandingPage = () => {
     } else{
       setCurrentList({
         id: 1,
-        name: '',
+        siteTitle: '',
         count: 0,
-        array: []
+        items: []
       });
     }
     setIsOpen(true);
@@ -36,37 +38,14 @@ const LandingPage = () => {
     dispatch(addTitle(siteTitle)); 
   }
 
-  const handleNewList = () => {};
+  const handleNewList = (listName, count, items) => {
+    console.log('Listing', listName, count, items);
+    dispatch(createList({listName, count, items}));
+    setIsOpen(false);
+    navigate(0);
+  };
 
 
-   // remove sample data 
-  const sampleList = {
-    id: 12,
-    name: 'Shopping List',
-    count: 5,
-    array: [
-      {
-        id: 1,
-        item: "Apple"
-      },
-      {
-        id: 2,
-        item: "Oranges"
-      },
-      {
-        id: 3,
-        item: "Peaches"
-      },
-      {
-        id: 4,
-        item: "Salt"
-      },
-      {
-        id: 5,
-        item: "Ginger and tomorrow we raid"
-      },
-    ]
-  } 
 
   return (
     <div className="flex flex-col w-full h-full bg-orange-200 p-5 items-center">
@@ -76,7 +55,7 @@ const LandingPage = () => {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 w-4/5 sm: gap-8 md:gap-6 md:w-full xl:w-2/3 xl:gap-10 mt-6 sm:mt-12 lg:mt-24">
         {data.lists.map((list)=>(
           <button key={list.id} onClick={()=> setIsOpen(true)}>
-            <CardComponent heading={list.name}/>
+            <CardComponent heading={list.listName}/>
           </button>
         ))}
         <button onClick={() => handleOpenList()}>
@@ -84,7 +63,7 @@ const LandingPage = () => {
         </button>
       </div>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="listing component">
-        <ListComponent list={currentList}/>
+        <ListComponent list={currentList} addNewList={handleNewList}/>
       </Modal>
     </div>
   )

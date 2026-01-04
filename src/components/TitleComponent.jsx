@@ -29,7 +29,7 @@ const TitleComponent = ({title, placeholder, onCallback, styles}) => {
   return (
     <div className='flex w-full justify-start mt-4 lg:mt-6 xl:mt-8'>
       {editing === true ? (
-      <form onSubmit={handleSetTitle} className='flex basis-auto md:text-base bg-orange-100 border-b-4 rounded-xl border-solid border-teal-800 h-16 w-full justify-between z-10'>
+      <form onSubmit={handleSetTitle} className='flex basis-auto md:text-base bg-orange-100 border-b-4 rounded-xl border-solid border-teal-800 h-16 w-full justify-between'>
         <input name="heading" type="text" placeholder={placeholder} value={heading} onChange={handleTitle} className='ml-4 text-3xl outline-none font-skinny'/>
         <button type="button" onClick={handleSetTitle}><ArrowRightCircleIcon className="size-8 text-teal-800 mr-4  cursor-pointer" /></button>
       </form>
