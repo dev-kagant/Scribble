@@ -1,4 +1,5 @@
 {
+  "homepage": "https://dev-kagant.github.io/Scribble/",
   "name": "scribble",
   "private": true,
   "version": "0.0.0",
@@ -6,13 +7,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start": "react-scripts start",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "gh-pages": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
