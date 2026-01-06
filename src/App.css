@@ -26,4 +26,5 @@
   --font-skinny: "Smooch Sans", sans-serif;
   --w-hvw: 50vw;
   --color-black-shade: oklch(0 0 0 / 75%);
+  --color-teal-mute: oklch(38.6% 0.063 188.416 / 15%);
 }
