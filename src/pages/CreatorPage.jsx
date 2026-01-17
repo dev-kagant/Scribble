@@ -4,7 +4,7 @@ const CreatorPage = () => {
   return (
     <div className='flex flex-col justify-center items-center p-6'>
       <div className='flex flex-col justify-center items-center rounded-4xl p-4 my-4 bg-teal-mute'>
-        <img src="../../public/smilePic2.jpg" className='w-1/3 my-6 rounded-full'></img>
+        <img src="./smilePic2.jpg" className='w-1/3 my-6 rounded-full'></img>
         <h1 className='font-thick text-5xl text-teal-800'>Kerri Gant</h1>
       </div>
       <div className='flex flex-col justify-center items-center rounded-4xl p-8 my-4 bg-teal-mute'>
