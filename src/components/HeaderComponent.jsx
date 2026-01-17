@@ -8,13 +8,13 @@ function HeaderComponent() {
   const {width} = useScreenSize();
 
   const linksArray = [
-    {name: 'Home', path: '/scribble/'},
-    {name: 'About', path: '/scribble/about'},
-    {name: 'Creator', path: '/scribble/creator'}
+    {name: 'Home', path: '/Scribble/'},
+    {name: 'About', path: '/Scribble/about'},
+    {name: 'Creator', path: '/Scribble/creator'}
   ]
   return (
     <div className="flex flex-row justify-between h-12 items-center px-8 border-b-2 border-teal-800 bg-white">
-      <h3 className="text-4xl font-thick cursor-pointer text-teal-800" onClick={() => {navigate('/scribble')}} >Scribble</h3>
+      <h3 className="text-4xl font-thick cursor-pointer text-teal-800" onClick={() => {navigate('/Scribble')}} >Scribble</h3>
       {(width > 820) ? <NavComponent links={linksArray}/> :
       <MobileNavComponent links={linksArray} />}
     </div>

@@ -13,9 +13,9 @@ function App() {
       <Router>
         <HeaderComponent/>
         <Routes>
-          <Route path="/scribble" element={<LandingPage />} />
-          <Route path="/scribble/about" element={<AboutPage />} />
-          <Route path="/scribble/creator" element={<CreatorPage />} />
+          <Route path="/Scribble" element={<LandingPage />} />
+          <Route path="/Scribble/about" element={<AboutPage />} />
+          <Route path="/Scribble/creator" element={<CreatorPage />} />
         </Routes>
       </Router>
     </div>
