@@ -17,26 +17,10 @@ const dataSlice = createSlice({
     getData: (state) => {
       console.log('State', state);
     },
-  }
-});
-
-
-const titleSlice = createSlice({
-  name: "title",
-  initialState,
-  reducers: {
     addTitle: (state, action) => {
         state.siteTitle = action.payload;
         localStorage.setItem("scribbleData", JSON.stringify({...state, "siteTitle": action.payload}))
     },
-  }
-});
-
-
-const listsSlice = createSlice({
-  name: "lists",
-  initialState,
-  reducers: {
     createList: (state, action) => {
       let newList = {
         "id": state.count + 1,
@@ -61,11 +45,7 @@ const listsSlice = createSlice({
 export const store = configureStore({
   reducer: {
     data: dataSlice.reducer,
-    title: titleSlice.reducer,
-    lists: listsSlice.reducer,
   },
 });
 
-export const {getData, updateData} = dataSlice.actions;
-export const {addTitle} = titleSlice.actions;
-export const {createList, updateLists} = listsSlice.actions;
+export const {addTitle, getData, updateData, createList, updateLists} = dataSlice.actions;
