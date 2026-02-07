@@ -1,4 +1,5 @@
 import { SocialIcon } from 'react-social-icons';
+import Joker from '../assets/Joker.png';
 
 const CreatorPage = () => {
   return (
@@ -9,11 +10,24 @@ const CreatorPage = () => {
       </div>
       <div className='flex flex-col justify-center items-center rounded-4xl p-8 my-4 bg-teal-mute md:w-3/4'>
         <h3 className='font-thick text-3xl text-teal-800 mb-4'>About</h3>
-        <p className='text-center text-lg'>Kerri has been developing for the since 2019, professionally for the since 2021. Working with both frontend and backend development. She created Scribble to help organizing the never end list she is constantly making.</p>
+        <p className='text-center text-lg'>I’ve been building in the digital space since 2016, turning my passion into a professional career in 2021. While I am a capable Full Stack Developer, my heart lies in the Frontend. I specialize in creating seamless, interactive user interfaces that bridge the gap between complex logic and intuitive design.</p>
       </div>
       <div className='flex flex-col justify-center items-center w-full rounded-4xl p-8 my-4 bg-teal-mute md:w-3/4'>
         <h3 className='font-thick text-3xl text-teal-800 mb-4'>Other Projects</h3>
-        <div></div>
+        <div className='flex flex-row justify-evenly items-center w-full'>
+          <div className="flex flex-col justify-center items-center mx-4">
+            <h4 className="font-base text-base mb-2 sm:text-xl lg:text-2xl lg:mb-4 text-teal-700 mb-1">JOKER</h4>
+            <a href="https://dev-kagant.github.io/joker" className='h-[120px] w-[120px] sm:h-[200px] sm:w-[200px] lg:h-[250px] lg:w-[250px] border-3 border-teal-700 rounded-2xl cursor-pointer'>
+              <img src={Joker} className='h-full w-full rounded-xl'/>
+            </a>
+          </div>
+          {/* <div className="flex flex-col justify-center items-center mx-4">
+            <h4 className="font-base text-base mb-2 sm:text-xl lg:text-2xl lg:mb-4 text-teal-700 mb-1">JOKER</h4>
+            <a href="https://dev-kagant.github.io/joker" className='h-[120px] w-[120px] sm:h-[200px] sm:w-[200px] lg:h-[250px] lg:w-[250px] border-2 border-white rounded-2xl cursor-pointer'>
+              <img src={Joker} className='h-full rounded-2xl w-full'/>
+            </a>
+          </div> */}
+        </div>
       </div>
       <div className='flex flex-col justify-center items-center w-full rounded-4xl p-4 my-4 bg-teal-mute md:w-3/4'>
         <h3 className='font-thick text-3xl text-teal-800 mb-4'>Socials</h3>
